@@ -30,6 +30,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var ids = response.Models.Select(static x => x.Id).OrderBy(static x => x);
@@ -44,6 +45,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var options = JsonSerializerOptionsProvider.Default;
@@ -72,6 +74,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var choice = response.Choices.First();
@@ -108,6 +111,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         Console.WriteLine(string.Join("\n\n", response.Results.Select(static x => x.Url)));
@@ -131,6 +135,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         Console.WriteLine(string.Join("\n\n", response.Results.Select(static x => x.Url)));
@@ -155,6 +160,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         Console.WriteLine(string.Join("\n\n", response.Results.Select(static x => x.Url)));
@@ -177,6 +183,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var options = JsonSerializerOptionsProvider.Default;
@@ -201,6 +208,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var options = JsonSerializerOptionsProvider.Default;
@@ -220,6 +228,7 @@ public sealed class OpenAiApiService
         if (!response.Successful)
         {
             Console.WriteLine($"Error: {response.Error?.Message}");
+            return;
         }
 
         var options = JsonSerializerOptionsProvider.Default;
