@@ -1,7 +1,7 @@
-﻿using OpenAI.GPT3;
-using OpenAI.GPT3.Managers;
-using OpenAI.GPT3.ObjectModels;
-using OpenAI.GPT3.ObjectModels.RequestModels;
+﻿using OpenAI;
+using OpenAI.Managers;
+using OpenAI.ObjectModels;
+using OpenAI.ObjectModels.RequestModels;
 using System.Text.Json;
 
 namespace OpenAiApiSample;
@@ -65,7 +65,7 @@ public sealed class OpenAiApiService
         var response = await openAiService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
         {
             Messages = messages,
-            Model = Models.ChatGpt3_5Turbo,
+            Model = Models.Gpt_3_5_Turbo,
             N = 1,
             User = Guid.NewGuid().ToString(),
             MaxTokens = 30
@@ -79,7 +79,7 @@ public sealed class OpenAiApiService
 
         var choice = response.Choices.First();
         var content = choice.Message.Content;
-        messages.Add(ChatMessage.FromAssistant(content));
+        messages.Add(ChatMessage.FromAssistant(content!));
 
         Console.WriteLine(content);
 
